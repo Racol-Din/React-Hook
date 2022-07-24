@@ -13,7 +13,7 @@ const App = () => {
         <h2>
           Learn React with Racol {obj.age}
         </h2>
-        <a href={link} target="_blank"> GITHUB</a>
+        <a href={link} target="_blank" rel="noreferrer"> GITHUB</a>
 
       </header>
     </div>
