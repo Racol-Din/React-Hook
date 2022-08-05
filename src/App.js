@@ -2,18 +2,18 @@ import './App.css';
 import Navigation from './components/navigation/nav';
 import { useState } from 'react';
 const App = () => {
-  let [name, setName] = useState('khai')
+  let [name, setName] = useState('')
   let [address, setAddress] = useState('')
   const [todos, setTodos] = useState([
     { id: "todo1", title: "We will go home" },
     { id: "todo2", title: "We will go to school" }
   ])
   const handleClick = (event) => {
-    if (!address) {
-      alert('empty address')
+    if (!name) {
+      alert('empty name')
       return;
     }
-    let todo = { id: "aaaa", title: address }
+    let todo = { id: "aaaa", title: name }
     setTodos([...todos, todo])
     setAddress('')
   }
@@ -23,8 +23,8 @@ const App = () => {
   }
   return (
     <div className="App">
-      <Navigation />
       <header className="App-header">
+        <Navigation />
         <h2>
           Learn React with Racol {name}
         </h2>
@@ -39,6 +39,7 @@ const App = () => {
 
         </div>
         <input type="text" value={address} onChange={(event) => { setAddress(event.target.value) }} />
+        <input type="text" value={name} onChange={(event) => { setName(event.target.value) }} />
         <button type="button" onClick={(event) => handleClick(event)}>Click</button>
 
       </header>
