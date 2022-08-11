@@ -1,6 +1,7 @@
 import './nav.scss'
 
 const Navigation = () => {
+
     return (
         <>
             <div className="topnav">

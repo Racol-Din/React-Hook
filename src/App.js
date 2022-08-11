@@ -1,7 +1,8 @@
 import './App.css';
 import Navigation from './components/navigation/nav';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Todo from './components/todos/todo';
+import Covid from './components/covid-table/covid';
 const App = () => {
   let [name, setName] = useState('')
   let [address, setAddress] = useState('')
@@ -11,6 +12,8 @@ const App = () => {
     { id: "todo3", title: "We will club", type: "hangout" },
     { id: "todo4", title: "We will par", type: "hangout" }
   ])
+
+
   const handleClick = (event) => {
     if (!name) {
       alert('empty name')
@@ -32,7 +35,9 @@ const App = () => {
         <h2>
           Learn React with Racol {name}
         </h2>
-        <Todo
+        <Covid />
+
+        {/* <Todo
           todos={todos}
           title="All todos"
           deleteDataTodos={handleDelete}
@@ -44,7 +49,7 @@ const App = () => {
         />
         <input type="text" value={address} placeholder="address" onChange={(event) => { setAddress(event.target.value) }} />
         <input type="text" value={name} placeholder="name" onChange={(event) => { setName(event.target.value) }} />
-        <button type="button" onClick={(event) => handleClick(event)}>Click</button>
+        <button type="button" onClick={(event) => handleClick(event)}>Click</button> */}
 
       </header>
     </div>
