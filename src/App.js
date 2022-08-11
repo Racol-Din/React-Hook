@@ -16,11 +16,15 @@ const App = () => {
       alert('empty name')
       return;
     }
-    let todo = { id: "aaaa", title: name, type: "unknown" }
+    let todo = { id: Math.floor((Math.random() * 1000000)) + 1, title: name, type: "hangout" }
     setTodos([...todos, todo])
     setName('')
   }
-
+  const handleDelete = (id) => {
+    let current = todos
+    current = current.filter(item => item.id !== id)
+    setTodos([...current])
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -29,12 +33,14 @@ const App = () => {
           Learn React with Racol {name}
         </h2>
         <Todo
-          data={todos}
+          todos={todos}
           title="All todos"
+          deleteDataTodos={handleDelete}
         />
         <Todo
-          data={todos.filter(item => item.type === "hangout")}
+          todos={todos.filter(item => item.type === "hangout")}
           title="hangout todos"
+          deleteDataTodos={handleDelete}
         />
         <input type="text" value={address} placeholder="address" onChange={(event) => { setAddress(event.target.value) }} />
         <input type="text" value={name} placeholder="name" onChange={(event) => { setName(event.target.value) }} />
